@@ -1,0 +1,106 @@
+import random
+
+grid = [" "," "," "," "," "," "," "," "," "]
+
+print('''
+["1", "2", "3"]
+["4", "5", "6"]
+["7, "8", "9"]
+''')
+
+while 1:
+
+  # Player Top row
+  if grid[0] == "x" and grid[1] == "x" and grid[2] == "x":
+    print("You win!!")
+    break
+  # Player Middle row
+  elif grid[3] == "x" and grid[4] == "x" and grid[5] == "x":
+    print("You win!!")
+    break
+  # Player bottom row  
+  elif grid[6] == "x" and grid[7] == "x" and grid[8] == "x":
+    print("You win!!")
+    break
+  # Player First Column
+  elif grid[0] == "x" and grid[3] == "x" and grid[6] == "x":
+    print("You win!!")
+    break
+  # Player second column  
+  elif grid[1] == "x" and grid[4] == "x" and grid[7] == "x":
+    print("You win!!")
+    break
+  # Player third column
+  elif grid[2] == "x" and grid[5] == "x" and grid[8] == "x":
+    print("You win!!")
+    break
+  # Player diagonal top left to bottom right
+  elif grid[0] == "x" and grid[4] == "x" and grid[8] == "x":
+    print("You win!!")
+    break
+  # Player diagonal bottom left to top right
+  elif grid[6] == "x" and grid[4] == "x" and grid[2] == "x":
+    print("You win!!")
+    break
+    
+  # Computer top row
+  elif grid[0] == "0" and grid[1] == "0" and grid[2] == "0":
+    print("You lose!!")
+    break
+  # Computer Middle row
+  elif grid[3] == "0" and grid[4] == "0" and grid[5] == "0":
+    print("You lose!!")
+    break
+  # Player bottom row  
+  elif grid[6] == "0" and grid[7] == "0" and grid[8] == "0":
+    print("You lose!!")
+    break
+  # Player First Column
+  elif grid[0] == "0" and grid[3] == "0" and grid[6] == "0":
+    print("You lose!!")
+    break
+  # Player second column  
+  elif grid[1] == "0" and grid[4] == "0" and grid[7] == "0":
+    print("You lose!!")
+    break
+  # Player third column
+  elif grid[2] == "0" and grid[5] == "0" and grid[8] == "0":
+    print("You lose!!")
+    break
+  # Player diagonal top left to bottom right
+  elif grid[0] == "0" and grid[4] == "0" and grid[8] == "0":
+    print("You lose!!")
+    break  
+  # Player diagonal bottom left to top right
+  elif grid[6] == "0" and grid[4] == "0" and grid[2] == "0":
+    print("You lose!!")
+    break
+  elif " " not in grid:
+    print("The game ends a draw")
+  else:  
+    move = input("where do you want to put an x? ")
+  
+    if grid[int(move)-1] == " ":
+      grid[int(move)-1] = "x"
+    else:
+      while 1:
+        move =  input("Pick a position that hasn't already been picked")
+        if grid[int(move)-1] == " ":
+          grid[int(move)-1] = "x"
+          break
+        
+      
+    while 1:
+      x = random.randint(0,8)
+      if grid[x] == " ":
+        grid[x] = "0"
+        print(f'''
+Computer has picked position {x + 1}
+''')
+        break
+      else:
+        continue
+  
+    print(grid[0:3])
+    print(grid[3:6])
+    print(grid[6:])
